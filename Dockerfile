@@ -1,7 +1,6 @@
 FROM centos:7
-ADD ./httpd.sh /opt/
-ADD ./index.html /var/www/html/
-RUN chmod +x /opt/httpd.sh
+RUN yum install -y epel-release \
+         nginx
+ADD ./index.html /usr/share/nginx/html
 WORKDIR /opt
-RUN ./httpd.sh
-ENTRYPOINT ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+CMD ["nginx", "-c", "/etc/nginx/nginx.conf" "-g", "daemon off;"]

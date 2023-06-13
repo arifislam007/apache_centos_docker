@@ -1,4 +1,4 @@
 #!/bin/bash
-docker volume create http
-docker build -t http:v1 .
-docker run -itd --name web01 -p 93:80 -v http:/var/www/html/ http:v1
+mkdir /webdata
+docker build -t nginx:v1 .
+docker run -itd --name web01 -p 95:80 -v /webdata:/var/www/html/ nginx:v1
