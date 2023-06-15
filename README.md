@@ -14,4 +14,4 @@ docker build -t http:v1 .
 docker run -itd --name web01 -p 81:80 -v http:/var/www/html http:v1
 
 
-now brows to your localhost with port 81 and seen your web server up and running
+now browse to your localhost with port 81 and seen your web server up and running
